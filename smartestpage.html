@@ -13,6 +13,7 @@
         </div>
 
         <script>
+        var password;
             function showAnswer () {
                 document.getElementById ("container").innerHTML = password;
             
@@ -20,9 +21,10 @@
 
 
             function buttonClick () {
-                var password = document.getElementById("passwordbox").value;
-                document.getElementById("container").innerHTML = "Thinking.........";
-                setTimeout()
+                 password = document.getElementById("passwordbox").value;
+                document.getElementById("container").innerHTML = "Thinking....";
+                setTimeout(showAnswer, 4000) ;
+               
             }
         </script>
     </body>
