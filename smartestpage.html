@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>World's Smartest webpage</title>
+    </head>
+    <body>
+        <div id="container">
+            Question : <input type="text" id="questionbox"><br>
+            Username : <input type="text" id="usernamebox"><br>
+            Password:  <input type="password" id="passwordbox"><br>
+            <input type="button" id="answer" value="Answer the question!" onclick="buttonClick();">
+        </div>
+
+        <script>
+            function buttonClick () {
+                var password = document.getElementById("passwordbox").value;
+                document.getElementById("container").innerHTML = password
+            }
+        </script>
+    </body>
+</html>
