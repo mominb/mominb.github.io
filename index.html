@@ -4,21 +4,63 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
-        <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Momin's home page</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <style>
+            .navbar-header > .logo {
+                float: left; margin: 6px 6px 0 6px; height: 40px;
+            }
+            .navbar-brand {
+                font-size: 20px;
+            }
+            .callout-main {
+                border-left-color: #ce4844 !important;
+            }
+            .callout {
+                padding: 8px;
+                margin: 20px 0;
+                border: 1px solid #eee;
+                border-left-width: 5px;
+                border-radius: 3px;
+            }
+        </style>
     </head>
-    <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-        <h1>Greetings!</h1>
-        <p>Hi this is my website. I am learning, how to program.</p>
-        <p>Here is my first program. <a href="html5-3.html">Quiz</a></p>
-        <p>
-            I have added the smartest webpage. Please click <a href="smartestpage.html">here</a>.
-        </p>
+    <body style="padding-top: 50px;">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <img src="images/me.jpg" class="logo">
+                    <span class="navbar-brand">Learning journal</span>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <h1>Greetings!</h1>
+
+            <p>My name is Momin & this is my website. I am learning about computers and programming.</p>
+
+            <div class="callout-main callout">Experiments</div>
+
+            <div class="row experiments">
+                <div class="col-md-4">
+                    <h4>Quiz</h4>
+                    <p>Here is my first program. A very simple javascript that ask questions and gives score and percentage when done.</p>
+                    <a href="html5-3.html">Go »</a>
+                </div>
+                <div class="col-md-4">
+                    <h4>Smartest webpage</h4>
+                    <p>Learning use of input fields and how to modify content of the page.</p>
+                    <a href="smartestpage.html">Go »</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scripts -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     </body>
 </html>
