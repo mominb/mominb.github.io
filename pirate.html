@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html>
+
+</html>
+
+<head>
+    <title>pirate talk</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Learn how a pirate talks</h1>
+
+        <div class="form-group">
+            <label for="english">Please type english in following text area and press <i>Translate</i>.</label>
+            <div class="input-group">
+                <input id="english" type="text" class="form-control">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="pirate_talk()">Translate!</button>
+                </span>
+            </div>
+        </div>
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">This is how a pirate would say</h3>
+            </div>
+            <p id="pirate" class="panel-body">
+            </p>
+        </div>
+    </div>
+
+
+    <script>
+        function createaudio(url) {
+            var audio = document.createElement("audio");
+            audio.src = url;
+            audio.autoplay = "true";
+            document.body.appendChild(audio);
+        }
+
+        function received(json) {
+            var paragraph = document.getElementById('pirate');
+            createaudio("http://translate.google.com/translate_tts?tl=en&q=" + json.translation.pirate)
+
+            paragraph.textContent = json.translation.pirate;
+
+        }
+
+        function pirate_talk() {
+            var script = document.createElement("script");
+            script.src = "http://isithackday.com/arrpi.php?callback=received&format=json&text=" + encodeURIComponent(
+                document.getElementById("english").value
+            );
+            document.body.appendChild(script);
+        }
+    </script>
+</body>
+
+</html>
