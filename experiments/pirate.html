@@ -32,7 +32,6 @@
         </div>
     </div>
 
-
     <script>
         function createaudio(text) {
             var id = 'pirateAudio';
@@ -48,32 +47,27 @@
             document.body.appendChild(audio);
         }
 
-        function received(json) {
+        function received(translated) {
             var paragraph = document.getElementById('pirate');
 
-            createaudio(json.translation.pirate);
-            paragraph.textContent = json.translation.pirate;
+            createaudio(translated);
+            paragraph.textContent = translated;
         }
 
         function pirate_talk() {
-            var id = 'ttsCall',
-                script = document.getElementById(id);
+            var request,
+                url = "https://api.funtranslations.com/translate/pirate.json?text=" + encodeURIComponent(
+                        document.getElementById("english").value
+                    );
 
-            if (script) {
-                script.remove();
-            }
-
-            try {
-                var script = document.createElement("script");
-                script.id = id;
-                script.src = "http://isithackday.com/arrpi.php?callback=received&format=json&text=" + encodeURIComponent(
-                    document.getElementById("english").value
-                );
-                document.body.appendChild(script);
-            } catch (e){
-                console.log(e);
-            }
-            
+            request = new XMLHttpRequest();
+            request.addEventListener("load", function () {
+                try {
+                    received(JSON.parse(this.responseText).contents.translated);
+                } catch (e) {}
+            });
+            request.open("GET", url);
+            request.send();
         }
 
         createaudio('This is how a pirate talks. Please type english in following text area and press Translate.');
