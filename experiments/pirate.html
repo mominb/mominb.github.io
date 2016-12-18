@@ -34,28 +34,44 @@
 
 
     <script>
-        function createaudio(url) {
-            var audio = document.createElement("audio");
-            audio.src = url;
+        function createaudio(text) {
+            var id = 'pirateAudio';
+            audio = document.getElementById(id);
+            if (audio) {
+                audio.remove();
+            }
+
+            audio = document.createElement("audio");
+            audio.id = id;
+            audio.src = "http://api.voicerss.org/?key=4fcf813679b248d8bfbfd05430efdc3c&hl=en-au&src=" + encodeURIComponent(text);
             audio.autoplay = "true";
             document.body.appendChild(audio);
         }
 
         function received(json) {
             var paragraph = document.getElementById('pirate');
-            createaudio("http://translate.google.com/translate_tts?tl=en&q=" + json.translation.pirate)
 
+            createaudio(json.translation.pirate);
             paragraph.textContent = json.translation.pirate;
-
         }
 
         function pirate_talk() {
+            var id = 'ttsCall',
+                script = document.getElementById(id);
+
+            if (script) {
+                script.remove();
+            }
+
             var script = document.createElement("script");
+            script.id = id;
             script.src = "http://isithackday.com/arrpi.php?callback=received&format=json&text=" + encodeURIComponent(
                 document.getElementById("english").value
             );
             document.body.appendChild(script);
         }
+
+        createaudio('This is how a pirate talks. Please type english in following text area and press Translate.');
     </script>
 </body>
 
