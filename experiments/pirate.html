@@ -63,12 +63,17 @@
                 script.remove();
             }
 
-            var script = document.createElement("script");
-            script.id = id;
-            script.src = "http://isithackday.com/arrpi.php?callback=received&format=json&text=" + encodeURIComponent(
-                document.getElementById("english").value
-            );
-            document.body.appendChild(script);
+            try {
+                var script = document.createElement("script");
+                script.id = id;
+                script.src = "http://isithackday.com/arrpi.php?callback=received&format=json&text=" + encodeURIComponent(
+                    document.getElementById("english").value
+                );
+                document.body.appendChild(script);
+            } catch (e){
+                console.log(e);
+            }
+            
         }
 
         createaudio('This is how a pirate talks. Please type english in following text area and press Translate.');
