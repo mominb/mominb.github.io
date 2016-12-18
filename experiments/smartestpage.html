@@ -4,18 +4,42 @@
 
 <head>
     <title>World's Smartest webpage</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 
 <body>
-    <div id="container">
-        Question : <input type="text" id="questionbox"><br> Username : <input type="text" id="usernamebox"><br> Password:
-        <input type="password" id="passwordbox"><br>
-        <input type="button" id="answer" value="Answer the question!" onclick="buttonClick();">
-    </div>
+    <div id="container" class="container form-horizontal">
+        <h1>World's Smartest page</h1>
 
-    <canvas id="canvas" width="500" height="500">
-        
-    </canvas>
+        <div class="form-group">
+            <label for="questionbox" class="col-sm-1 control-label">Question:</label>
+            <div class="col-sm-11">
+                <input type="text" class="form-control" id="questionbox" placeholder="Please enter the question here">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="usernamebox" class="col-sm-1 control-label">Username:</label>
+            <div class="col-sm-11">
+                <input type="text" class="form-control" id="usernamebox" placeholder="Please enter the username here">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="passwordbox" class="col-sm-1 control-label">Password:</label>
+            <div class="col-sm-11">
+                <input type="text" class="form-control" id="passwordbox" placeholder="Please enter the password here">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-1 col-sm-11">
+                <input type="button" id="answer" class="btn btn-default" value="Answer the question!" onclick="buttonClick();">
+            </div>
+        </div>
+
+
+    </div>
 
     <script>
         var password;
@@ -29,14 +53,6 @@
             document.getElementById("container").innerHTML = "Thinking....";
             setTimeout(showAnswer, 4000);
         }
-
-        var canvas = document.getElementById("canvas");
-        var ctx = canvas.getContext("2d");
-
-        ctx.beginPath();
-        ctx.moveTo(100, 100);
-
-        ctx.stroke()
     </script>
 </body>
 
