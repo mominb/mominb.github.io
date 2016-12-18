@@ -42,7 +42,7 @@
 
             audio = document.createElement("audio");
             audio.id = id;
-            audio.src = "http://api.voicerss.org/?key=4fcf813679b248d8bfbfd05430efdc3c&hl=en-au&src=" + encodeURIComponent(text);
+            audio.src = "https://api.voicerss.org/?key=4fcf813679b248d8bfbfd05430efdc3c&hl=en-au&src=" + encodeURIComponent(text);
             audio.autoplay = "true";
             document.body.appendChild(audio);
         }
@@ -54,6 +54,14 @@
             paragraph.textContent = translated;
         }
 
+        function onTranslationSuccess() {
+            try {
+                received(JSON.parse(this.responseText).contents.translated);
+            } catch (e) {
+                createaudio('Unable to translate, please try again after few minutes.');
+            }
+        }
+
         function pirate_talk() {
             var request,
                 url = "https://api.funtranslations.com/translate/pirate.json?text=" + encodeURIComponent(
@@ -61,16 +69,12 @@
                     );
 
             request = new XMLHttpRequest();
-            request.addEventListener("load", function () {
-                try {
-                    received(JSON.parse(this.responseText).contents.translated);
-                } catch (e) {}
-            });
+            request.addEventListener("load", onTranslationSuccess);
             request.open("GET", url);
             request.send();
         }
 
-        createaudio('This is how a pirate talks. Please type english in following text area and press Translate.');
+        createaudio('Please type english in following text area and press Translate.');
     </script>
 </body>
 
