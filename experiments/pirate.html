@@ -6,7 +6,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
     <title>pirate talk</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
@@ -14,6 +14,39 @@
 <body>
     <div class="container">
         <h1>Learn how a pirate talks</h1>
+
+        <div class="form-group">
+            <label for="lang">Pirate's language</label>
+            <select id="lang" class="form-control">
+                <option value="ca-es">Catalan</option> 	
+                <option value="zh-cn">Chinese (China)</option> 	
+                <option value="zh-hk">Chinese (Hong Kong)</option> 	
+                <option value="zh-tw">Chinese (Taiwan)</option> 	
+                <option value="da-dk">Danish</option> 	
+                <option value="nl-nl">Dutch</option> 	
+                <option value="en-au" selected>English (Australia)</option> 	
+                <option value="en-ca">English (Canada)</option> 	
+                <option value="en-gb">English (Great Britain)</option> 	
+                <option value="en-in">English (India)</option> 	
+                <option value="en-us">English (United States)</option> 	
+                <option value="fi-fi">Finnish</option> 	
+                <option value="fr-ca">French (Canada)</option> 	
+                <option value="fr-fr">French (France)</option> 	
+                <option value="de-de">German</option> 	
+                <option value="it-it">Italian</option> 	
+                <option value="ja-jp">Japanese</option> 	
+                <option value="ko-kr">Korean</option> 	
+                <option value="nb-no">Norwegian</option> 	
+                <option value="pl-pl">Polish</option> 	
+                <option value="pt-br">Portuguese (Brazil)</option> 	
+                <option value="pt-pt">Portuguese (Portugal)</option> 	
+                <option value="ru-ru">Russian</option> 	
+                <option value="es-mx">Spanish (Mexico)</option> 	
+                <option value="es-es">Spanish (Spain)</option> 	
+                <option value="sv-se">Swedish (Sweden) </option> 	
+            </select>
+        </div>
+
 
         <div class="form-group">
             <label for="english">Please type english in following text area and press <i>Translate</i>.</label>
@@ -44,7 +77,7 @@
 
             audio = document.createElement("audio");
             audio.id = id;
-            audio.src = "https://api.voicerss.org/?key=4fcf813679b248d8bfbfd05430efdc3c&hl=en-au&src=" + encodeURIComponent(text);
+            audio.src = "https://api.voicerss.org/?key=4fcf813679b248d8bfbfd05430efdc3c&hl=" + document.getElementById('lang').value + "&src=" + encodeURIComponent(text);
             audio.autoplay = "true";
             document.body.appendChild(audio);
         }
@@ -67,8 +100,8 @@
         function pirate_talk() {
             var request,
                 url = "https://api.funtranslations.com/translate/pirate.json?text=" + encodeURIComponent(
-                        document.getElementById("english").value
-                    );
+                    document.getElementById("english").value
+                );
 
             request = new XMLHttpRequest();
             request.addEventListener("load", onTranslationSuccess);
