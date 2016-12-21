@@ -1,0 +1,50 @@
+<html>
+
+<head>
+    <title>Learning about arrays</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/dracula.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Arrays and how to loop them</h2>
+
+        <p>Array is like a pile of data. Just like a pile of books. So I learned how to find something from a pile of things.</p>
+
+        <p>As an example I choose to find a type of tags in any web page.</p>
+
+        <h2>Logic</h2>
+
+        <ol>
+            <li>Write a function that print all tags with a name and src attribute.</li>
+            <li>First find all tags with a name</li>
+            <li>Check all tags that are returned by previous statement if it has src attribute.</li>
+            <li>If src attribute is present then print the src attribute on console.</li>
+        </ol>
+
+        <h2>Code</h2>
+
+        <pre><code class="javascript">function printTags(tagName) {
+    var tags = document.getElementsByTagName(tagName)
+    for (var i = 0; i < tags.length; i++) {
+        var tag = tags[i];
+        if (tag.src) {
+            console.log(tag.src)
+        }
+    }
+}</code></pre>
+
+    </div>
+</body>
+
+</html>
