@@ -25,11 +25,12 @@
         function startQuiz() {
             var percentage,
                 geek_score = 0,
-                totalQuestions = 3;
+                totalQuestions = 3, 
+                answer;
 
-            if (prompt("what is capital of Pakistan?").toLowerCase() === 'islamabad') {
+            if ((answer = prompt("what is capital of Pakistan?").toLowerCase()) === 'islamabad') {
                 geek_score = geek_score + 1
-            } else {
+            } else if (answer === undefined) {
                 $('#message').html("Why did you cancel, try again by reloading the page 😞.");
             }
 
