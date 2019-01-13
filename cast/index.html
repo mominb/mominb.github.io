@@ -1,0 +1,67 @@
+<html>
+<header>
+	<script>
+
+
+		function clearText(){
+			setText('');
+		}
+
+		function setText(value) {
+			var quality = document.querySelector('p.quality'); 
+
+			quality.innerText = value;
+		}
+
+		function again() {
+			var selected = document.querySelector('input[name="cast"]:checked'); 
+
+			clearText();
+
+			if ( selected ) {
+				selected.checked = false;
+			}
+		}
+
+		function showQualities() {
+			var selected = document.querySelector('input[name="cast"]:checked'); 
+
+			if( selected ) {
+				if ( selected.value == 'arain') {
+					setText('Arain gaday khaein.')
+				} else if (selected.value == "sheikh") {
+					setText("Kanjoos makhi choos.")
+				} else if (selected.value == "qureshi") {
+					setText("marasi & chaprasi")
+				} else if (selected.value == "mughal") {
+					setText("mughal ka mujay pata nahi")
+				}
+			}
+		}	
+	</script>
+</header>
+
+<body>
+	<h1>Know more about yourself</h1>
+
+	<p>Please note that I did it for fun. don't mind.</p>
+
+	<p>Please input your cast</p>
+
+	<input type="radio" name="cast" value="arain"> <span>Arain</span><br>
+	<input type="radio" name="cast" value="sheikh"> <span>Sheikh</span><br>
+	<input type="radio" name="cast" value="qureshi"> <span>Qureshi</span><br>
+	<input type="radio" name="cast" value="mughal"> <span>Mughal</span><br>
+
+	<br>
+
+	<button onclick="showQualities()">Show my qualities</button>
+	<button onclick="again()">Let's try again</button>
+
+	<p class="quality">
+	</p>
+
+
+</body>
+
+</html>
