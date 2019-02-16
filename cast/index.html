@@ -1,5 +1,13 @@
 <html>
 <header>
+	<style>
+		.soost:hover {
+			color: red;
+			font-size: 20px;
+			transition: color 500ms ease;
+			transition: font-size 500ms ease;
+		}
+	</style>
 	<script>
 
 
@@ -28,13 +36,13 @@
 
 			if( selected ) {
 				if ( selected.value == 'arain') {
-					setText('Arain gaday khaein.')
+					setText('The origin of the Arain community is uncertain, with some members of the community claiming a connection with the Rajputs and others, with whom the historian and political scientist Christophe Jaffrelot agrees, believing that they are displaced farming communities who moved to Punjab from Sindh and Multan as Arab Muslim armies encroached. Jaffrelot also believes the community to be related to the Kamboj community mainly in the northern India and eastern Pakistan.[4] Some scholars have linked Arains to the Rayeen, a Rajput caste of India.[5] Ishtiaq Ahmed, a political scientist that is also a member of the Arain community, acknowledges that some early Arain texts ascribe a Persian origin and others a Rajput descent. He says that the Arain claims of Arab descent could be viewed as a claim to status as "conquerors and original Muslims". He believes that the Arains "are a mix of many ethnicities and races", similar to other "farming castes of the Punjab and Haryana.')
 				} else if (selected.value == "sheikh") {
-					setText("Kanjoos makhi choos.")
+					setText("Punjabi Shaikh are a branch of the Shaikhs in South Asia. The family name is popularly known for its merchant-focused businessmen and noblemen in South Asia. This name is originally traced back to the Arab royals which had come to South Asia to establish Islam and also high caste Hindu converts to Islam,[citation needed] for example, Sheikh Abdul Qadir Gilani[1] a prominent Muslim preacher and Islamic saint.")
 				} else if (selected.value == "qureshi") {
-					setText("marasi & chaprasi")
+					setText("According to the dictionary of American Family Names (Oxford University Pres) it indicates that the Qureshis are descendants of the Quraish, the leading tribe in Mecca at the time of the birth of the Islamic prophet Muhammad (ad 570); Muhammad's father was a member of it. Quraish are the descendants of Abraham through Ismail in Arabia. The Quraish at first opposed Muhammad’s teachings and are said to have persecuted him and his followers, but by the time of his death they had begun to convert to the new faith and played an important role in bringing Arabia under the banner of Islam.")
 				} else if (selected.value == "mughal") {
-					setText("mughal ka mujay pata nahi")
+					setText("During the time of the Mongol Empire in the 13–14th century, the army of Genghis Khan swept across Central Asia and into Persia. Over subsequent centuries, descendants of these soldiers inter-married with Persian and Turkish Muslims, converted to Islam, and adopted the Persian language and culture. Conflict between India and the Mongols has been recorded from the time of Genghis Khan to Timur to Babur. The Delhi Sultanate (1206–1526) faced nearly annual Mongol onslaughts from 1297 to 1303 when the Doab was sacked, and what is now Pakistan was under continual Mongol occupation. Indian and Indo-Persian sources referred to the invaders as Mughal, derived from Mongol. During the 16th century, the Turko-Mongol conqueror Babur brought most of northern India under Mughal rule, establishing an empire that would endure until the mid-19th century. As the ruling class, the Mughals lived mainly in cities along with other Muslims. They were traditionally known for their skill at horsemanship, archery, wrestling, and a meat-heavy diet.[")
 				}
 			}
 		}	
@@ -44,21 +52,21 @@
 <body>
 	<h1>Know more about yourself</h1>
 
-	<p>Please note that I did it for fun. don't mind.</p>
+	<p>This is a program made by me.it will tell you more about your cast. </p>
 
-	<p>Please input your cast</p>
+	<p class="soost" tabindex="0">Please input your cast</p>
 
-	<input type="radio" name="cast" value="arain"> <span>Arain</span><br>
+	<input class="soost" type="radio" name="cast" value="arain"> <span>Arain</span><br>
 	<input type="radio" name="cast" value="sheikh"> <span>Sheikh</span><br>
 	<input type="radio" name="cast" value="qureshi"> <span>Qureshi</span><br>
 	<input type="radio" name="cast" value="mughal"> <span>Mughal</span><br>
 
 	<br>
 
-	<button onclick="showQualities()">Show my qualities</button>
+	<button class="soost" onclick="showQualities()">Show my qualities</button>
 	<button onclick="again()">Let's try again</button>
 
-	<p class="quality">
+	<p>
 	</p>
 
 
